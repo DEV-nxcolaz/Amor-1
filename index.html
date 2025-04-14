@@ -22,11 +22,11 @@
 
     <main>
         <div class="container">
-            <a id="redirectBtn" class="container__link" href="about.html"><img class="container__imagem-coracao" src="./img/coracao.png" alt="imagem de um coração">Clique
+            <a id="aboutBtn" class="container__link" href="about.html"><img class="container__imagem-coracao" src="./img/coracao.png" alt="imagem de um coração">Clique
             </a>
         </div>
     </main>
-
+    
     <script>
         const hearts = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🖤', '🤍', '🤎'];
         
@@ -59,6 +59,13 @@
         for (let i = 0; i < 50; i++) {
             setTimeout(createHeart, i * 300);
         }
+
+        document.getElementById('aboutBtn').addEventListener('click', function() {
+            // Armazena no localStorage que o usuário interagiu
+            localStorage.setItem('playMusic', 'true');
+            // Redireciona para about.html
+            window.location.href = 'about.html';
+        });
     </script>
 
 </body>
