@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Te Amo!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Pacifico&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style/about.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="spotify-player">
+            <iframe src="https://open.spotify.com/embed/track/4JSROzfWqKccwZ68DX1aJe?si=f645b9e00ee64529" width="100%"
+                height="80" frameborder="0" allowtransparency="true" allow="encrypted-media">
+            </iframe>
+        </div>
+
+        <div class="carrossel-container">
+            <div class="carrossel">
+                <div class="slide">
+                    <img src="./img/1.jpg" alt="Foto do casal">
+                </div>
+                <div class="slide">
+                    <img src="./img/2.jpg" alt="Foto do casal">
+                </div>
+                <div class="slide">
+                    <img src="./img/3.jpg" alt="Foto do casal">
+                </div>
+                <div class="slide">
+                    <img src="./img/4.jpg" alt="Foto do casal">
+                </div>
+                <div class="slide">
+                    <img src="./img/5.jpg" alt="Foto do casal">
+                </div>
+            </div>
+        </div>
+
+        <div class="message-box">
+            <div class="message-title">❤️Eu te amo</div>
+            <p class="message-text">
+                oi gabi vim aqui pra te dizer que eu te amo muito desde que vc entrou na minha vida eu tenho vivido uma felicidade inexplicável sou muito grato por tudo ter acontecido por todos os nossos momentos juntos e por tudo que vc fez por mim de verdade vc mudou a minha vida vc foi uma mulher incrível e perfeita comigo só tenho a agradecer vc e obrigado por tudo vc fez por mim oque nunca ninguém fez ou fará vc é incrível demais sério não tenho palavras pra descrever o quão incrível o quão importante e o quão perfeito foi viver esses meses ao seu lado eu te amo muito Gabriella.💞
+            </p>
+        </div>
+    </div>
+
+
+    </script>
+
+
+    <script>
+        const hearts = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🖤', '🤍', '🤎'];
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+
+            // Tamanho aleatório
+            const size = Math.random() * 20 + 10;
+            heart.style.fontSize = `${size}px`;
+
+            // Posição inicial
+            heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.top = `-50px`;
+
+            // Duração da animação
+            const duration = Math.random() * 3 + 2;
+            heart.style.animationDuration = `${duration}s`;
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+                createHeart();
+            }, duration * 1000);
+        }
+
+        // Criar vários corações
+        for (let i = 0; i < 50; i++) {
+            setTimeout(createHeart, i * 300);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const carrossel = document.querySelector('.carrossel');
+            const slides = document.querySelectorAll('.slide');
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            // Função para mudar de slide
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                carrossel.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            // Inicia o autoplay (muda a cada 4 segundos)
+            let autoplay = setInterval(nextSlide, 4000);
+
+            // Pausa quando o mouse está em cima
+            const container = document.querySelector('.carrossel-container');
+            container.addEventListener('mouseenter', () => clearInterval(autoplay));
+            container.addEventListener('mouseleave', () => {
+                autoplay = setInterval(nextSlide, 4000);
+            });
+        });
+
+
+
+
+
+        // Inicializa tudo quando a página carrega
+        document.addEventListener('DOMContentLoaded', function () {
+            updateTime();
+            setInterval(updateTime, 60000); // Atualiza o horário a cada minuto
+            setupCarousel();
+        });
+    </script>
+
+    </header>
+</body>
+
+</html>
